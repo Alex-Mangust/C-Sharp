@@ -5,24 +5,46 @@
 a = 5; b = 7 -> max = 7
 a = 2, b = 10 -> max = 10
 a = -9, b = -3 -> max = -3*/
-Console.Write("Введите первое число: ");
-int numberFirst = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите второе число: ");
-int numberSecond = Convert.ToInt32(Console.ReadLine());
-if (numberFirst > numberSecond)
-{
-    Console.WriteLine(numberFirst + " больше " + numberSecond);
-}
-else
-{
-    Console.WriteLine(numberSecond + " больше " + numberFirst);
-}
+
+// Console.Write("Введите первое число: ");
+// int numberFirst = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите второе число: ");
+// int numberSecond = Convert.ToInt32(Console.ReadLine());
+// if (numberFirst > numberSecond)
+// {
+//     Console.WriteLine(numberFirst + " больше " + numberSecond);
+// }
+// else
+// {
+//     Console.WriteLine(numberSecond + " больше " + numberFirst);
+// }
+
 
 /*4. Напишите программу, которая прпнимает на ввод
 три числа и выдает максимальное из этих чисел.
 2, 3, 7 -> 7
 44, 5, 72 -> 78
 22, 3, 9 -> 22*/
+
+Console.Write("Введите первое число: ");
+int OneNumber = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите второе число: ");
+int TwoNumber = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите третье число: ");
+int ThreeNumber = Convert.ToInt32(Console.ReadLine());
+if((OneNumber > TwoNumber) && (OneNumber > ThreeNumber))
+{
+    Console.WriteLine(OneNumber);
+}
+else if((TwoNumber > OneNumber) && (TwoNumber > ThreeNumber))
+{
+    Console.WriteLine(TwoNumber);
+}
+else
+{
+    Console.WriteLine(ThreeNumber);
+}
+
 
 /*6. Напишите программу, которая на ввод принимает число и выдает, является ли число четным
 (делится ли оно на два без остатка).
