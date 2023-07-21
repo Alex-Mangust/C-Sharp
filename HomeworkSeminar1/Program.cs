@@ -52,17 +52,30 @@ a = -9, b = -3 -> max = -3*/
 -3 -> нет
 7 -> нет*/
 
-Console.Write("Введите число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-if(number % 2 == 0)
-{
-    Console.WriteLine("Число чётное.");
-}
-else
-{
-    Console.WriteLine("Число нечётное.");
-}
+// Console.Write("Введите число: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// if(number % 2 == 0)
+// {
+//     Console.WriteLine("Число чётное.");
+// }
+// else
+// {
+//     Console.WriteLine("Число нечётное.");
+// }
+
+
 /*8. Напишите программу, которая на ввод принимает число
-(N), а на выводе показывает все чётные число от 1 до N.
+(N), а на выводе показывает все чётные числа от 1 до N.
 5 -> 2, 4
 8 -> 2, 4, 6, 8*/
+
+Console.Write("Введите число: ");
+int N = Convert.ToInt32(Console.ReadLine()), number = 1;
+while(number <= N)
+{
+    if(number % 2 == 0)
+    {
+        Console.Write(number + " ");
+    }
+    number++;
+}
