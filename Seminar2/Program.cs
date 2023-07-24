@@ -1,11 +1,12 @@
-﻿// Напишите программу, которая выводит случайное трехзначное число и
-//  удаляет вторую цифру этого числа.
-// 456 -> 46
-// 782 -> 72
-// 918 -> 98
+﻿// Написать программу, которая будет принимать на вход два числа и выводить, является ли
+// второе число кратным первому. Если число 2 не кратно 1, про программа выводит остаток
+// от деления.
 
-int num = new Random().Next(100, 1000);
-int num1 = num/100, num2 = num%10;
-Console.WriteLine(num);
-int result = num1 * 10 + num2;
-Console.WriteLine(result);
+Console.WriteLine("Введите число");
+int num = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Введите число");
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+if(num%num1 == 0) Console.WriteLine("Числа кратные");
+else Console.WriteLine("Остаток равен " + num%num1);
