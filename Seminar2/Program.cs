@@ -1,15 +1,14 @@
-﻿// Напишите программу, которая принимает на вход число 
-// и проверяет, кратно ли оно одновременно 
-// 7 и 23.
+﻿// Напишите программу, которая принимает на вход два числа и проверяет, 
+// является ли одно число квадратом другого.
 
-// 14 -> нет 
-// 46 -> нет 
-// 161 -> да
+// 5, 25  ->  да
+// -4, 16  ->  да
+// 25, 5  ->  да
+// 8,9  ->  нет
 
 Console.WriteLine("Введите число");
 int num = Convert.ToInt32(Console.ReadLine());
-
-if((num%7 == 0) && (num%23 == 0)) Console.WriteLine("Число кратное и 7, и 23");
-else if ((num%7 == 0) && (num%23 != 0)) Console.WriteLine("Число кратное только 7");
-else if ((num%7 != 0) && (num%23 == 0)) Console.WriteLine("Число кратное только 23");
-else Console.WriteLine("Число не кратное ни 7, ни 23");
+Console.WriteLine("Введите второе число");
+int num1 = Convert.ToInt32(Console.ReadLine());
+if((num == num1 * num1) || (num1 == num * num)) Console.WriteLine("Да");
+else Console.WriteLine("Нет");
