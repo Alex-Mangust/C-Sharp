@@ -18,23 +18,26 @@
 // 32679 -> 6
 // (диапазон от 10 до 40000)
 
-int number = new Random().Next(10, 40000);
-if(number > 99 && number < 1000)
-{
-    Console.WriteLine($"Третья цифра числа {number} -> {number = number%10}");
-}
-else if (number > 1000 && number < 10000) // 1234
-{
-     Console.WriteLine($"Третья цифра числа {number} -> {number = (number/10)%10}");
-}
-else if (number > 10000) // 12345
-{
-    Console.WriteLine($"Третья цифра числа {number} -> {number = (number/100)%10}");
-}
-else
-{
-    Console.WriteLine("Третьей цифры в числе " + number + " нет");
-}
+// int number = new Random().Next(10, 40000);
+// if(number > 99 && number < 1000)
+// {
+//     Console.WriteLine($"Третья цифра числа {number} -> {number = number%10}");
+// }
+// else if (number > 1000 && number < 10000) // 1234
+// {
+//      Console.WriteLine($"Третья цифра числа {number} -> {number = (number/10)%10}");
+// }
+// else if (number > 10000) // 12345
+// {
+//     Console.WriteLine($"Третья цифра числа {number} -> {number = (number/100)%10}");
+// }
+// else
+// {
+//     Console.WriteLine("Третьей цифры в числе " + number + " нет");
+// }
+
+
+
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели,
 // и проверяет, является ли этот день выходным.
 // 6 -> да 
@@ -42,5 +45,19 @@ else
 // 1 -> нет
 // (диапазон от 0 до 10)
 
-
-int num = new Random().Next(100, 1000);
+int day = new Random().Next(0, 10);
+if(day > 0 && day < 5)
+{
+    Console.WriteLine("Day = " + day);
+    Console.WriteLine("Это не выходной!");
+}
+else if (day > 5 && day < 8)
+{
+    Console.WriteLine("Day = " + day);
+    Console.WriteLine("Это выходной!");
+}
+else
+{
+    Console.WriteLine("Day = " + day);
+    Console.WriteLine("Такого дня недели нет!");
+}
