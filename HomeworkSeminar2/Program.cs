@@ -5,8 +5,8 @@
 // 782 -> 8
 // 918 -> 1
 
-int number = new Random().Next(100, 1000);
- Console.WriteLine($"Вторая цифра числа {number} -> {number = (number /10) % 10}");
+// int number = new Random().Next(100, 1000);
+//  Console.WriteLine($"Вторая цифра числа {number} -> {number = (number /10) % 10}");
 
 
 
@@ -18,8 +18,23 @@ int number = new Random().Next(100, 1000);
 // 32679 -> 6
 // (диапазон от 10 до 40000)
 
-
-
+int number = new Random().Next(10, 40000);
+if(number > 99 && number < 1000)
+{
+    Console.WriteLine($"Третья цифра числа {number} -> {number = number%10}");
+}
+else if (number > 1000 && number < 10000) // 1234
+{
+     Console.WriteLine($"Третья цифра числа {number} -> {number = (number/10)%10}");
+}
+else if (number > 10000) // 12345
+{
+    Console.WriteLine($"Третья цифра числа {number} -> {number = (number/100)%10}");
+}
+else
+{
+    Console.WriteLine("Третьей цифры в числе " + number + " нет");
+}
 // Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели,
 // и проверяет, является ли этот день выходным.
 // 6 -> да 
