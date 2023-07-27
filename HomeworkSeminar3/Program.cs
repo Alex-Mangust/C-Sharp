@@ -4,6 +4,16 @@
 // 12821 -> да
 // 23432 -> да
 
+Console.Write("Введите пятизначное число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+if(num > 9999 && num < 100000)
+{
+    string numStr = num + string.Empty;
+    if(numStr[0] == numStr[4] && numStr[1] == numStr[3]) Console.WriteLine($"Да, число {num} является палиндромом.");
+    else Console.WriteLine($"Нет, число {num} не является палиндромом.");
+}
+else Console.WriteLine("Вы ввели не пятизначное число");
+
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 // A (3,6,8); B (2,1,-7), -> 15.84
