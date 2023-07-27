@@ -71,11 +71,26 @@
 // double num2 = Math.Sqrt(25); // Корень
 // Console.WriteLine(num2);
 
-Console.WriteLine("Введите координаты первой точки: ");
-int x1 = Convert.ToInt32(Console.ReadLine());
-int y1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите координаты второй точки: ");
-int x2 = Convert.ToInt32(Console.ReadLine());
-int y2 = Convert.ToInt32(Console.ReadLine());
-double s = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
-Console.WriteLine(s);
+// Console.WriteLine("Введите координаты первой точки: ");
+// int x1 = Convert.ToInt32(Console.ReadLine());
+// int y1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите координаты второй точки: ");
+// int x2 = Convert.ToInt32(Console.ReadLine());
+// int y2 = Convert.ToInt32(Console.ReadLine());
+// double s = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+// Console.WriteLine(s);
+
+
+// Задача 22. Напишите программу, которая принимает на вход число (N) и выдаёт таблицу квадратов чисел 
+// от 1 до N.
+
+// 5 -> 1, 4, 9, 16, 25.
+// 2 -> 1,4
+
+Console.Write("Введите число: ");
+int n = Convert.ToInt32(Console.ReadLine());
+for(int i = 0; i <= n; i++)
+{
+    // double y = Math.Pow(i, 2);
+    Console.WriteLine(Math.Pow(i, 2)); 
+}
