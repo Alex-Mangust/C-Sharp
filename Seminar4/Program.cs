@@ -78,15 +78,30 @@
 // 4 -> 24 
 // 5 -> 120
 
-Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
-int GetMultiply()
+// Console.Write("Введите число: ");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int GetMultiply()
+// {
+//     int multi = 1;
+//     for(int i = 1; i <= num; i++)
+//     {
+//         multi = multi * i;
+//     }
+//     return multi;
+// }
+// Console.WriteLine(GetMultiply());
+
+// Задача 30: Напишите программу, которая выводит массив из 8 элементов, 
+// заполненный нулями и единицами в случайном порядке.
+// [1,0,1,1,0,1,0,0]
+
+int [] array = new int[8];
+GetArray();
+void GetArray()
 {
-    int multi = 1;
-    for(int i = 1; i <= num; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        multi = multi * i;
+        array[i] = new Random().Next(0,2);
+        Console.WriteLine(array[i] + " ");
     }
-    return multi;
 }
-Console.WriteLine(GetMultiply());
