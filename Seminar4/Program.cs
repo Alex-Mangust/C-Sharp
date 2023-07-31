@@ -59,16 +59,34 @@
 
 // 2 способ:
 
+// Console.Write("Введите число: ");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int GetCountNum()
+// {
+//     int count = 0;
+//     while(num > 0)
+//     {
+//         num = num/10;
+//         count++;
+//     }
+//     return count;
+// }
+// Console.WriteLine(GetCountNum());
+
+// Задача 28: Напишите программу, которая принимает
+//  на вход число N и выдаёт произведение чисел от 1 до N.
+// 4 -> 24 
+// 5 -> 120
+
 Console.Write("Введите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-int GetCountNum()
+int GetMultiply()
 {
-    int count = 0;
-    while(num > 0)
+    int multi = 1;
+    for(int i = 1; i <= num; i++)
     {
-        num = num/10;
-        count++;
+        multi = multi * i;
     }
-    return count;
+    return multi;
 }
-Console.WriteLine(GetCountNum());
+Console.WriteLine(GetMultiply());
