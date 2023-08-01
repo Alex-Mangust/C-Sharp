@@ -27,30 +27,42 @@
 // 9012 -> 12
 
 
-int NumCount(string num)
-{
-    int result = 0;
-    for(int i = 0; i < num.Length; i++)
-    {
-        int numSecond;
-        if(int.TryParse(num[i].ToString(), out numSecond))
-        {
-            result += numSecond;
-        }
-        else
-        {
-            Console.WriteLine("Ошибка! Введите число!");
-            return 0;
-        }
-    }
-     return result;
-}
-Console.Write("Введите число: ");
-string num = Console.ReadLine();
-Console.WriteLine(NumCount(num));
+// int NumCount(string num)
+// {
+//     int result = 0;
+//     for(int i = 0; i < num.Length; i++)
+//     {
+//         int numSecond;
+//         if(int.TryParse(num[i].ToString(), out numSecond))
+//         {
+//             result += numSecond;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Ошибка! Введите число!");
+//             return 0;
+//         }
+//     }
+//      return result;
+// }
+// Console.Write("Введите число: ");
+// string num = Console.ReadLine();
+// Console.WriteLine(NumCount(num));
 
 
 
 // Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
+
+
+int[] array = new int[8];
+for (int i = 0; i < array.Length; i++)
+{
+    array[i] = new Random().Next(101);
+    Console.Write(array[i]);
+    if(i != array.Length-1)
+    {
+        Console.Write(", ");
+    }
+}
