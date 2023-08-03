@@ -28,21 +28,46 @@
 // замените на соответствующие отрицательные, и наоборот.
 // [-4, -8, 8, 2] -> [4, 8, -8, -2]
 
-System.Console.Write("Введите количество элементов в массиве: ");
-int n = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[n];
+// System.Console.Write("Введите количество элементов в массиве: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// int[] array = new int[n];
+// System.Console.WriteLine("");
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = new Random().Next(-9, 10);
+//     System.Console.Write(array[i] + " ");
+// }
+// System.Console.WriteLine("");
+// for(int j = 0; j < array.Length; j++)
+// {
+//     array[j] = array[j] * -1;
+//     System.Console.Write(array[j] + " ");
+// }
+
+// Задача 33: Задайте массив. Напишите программу, которая определяет,
+// присутствует ли заданное число в массиве.
+// 4; массив [6, 7, 19, 345, 3] -> нет
+// -3; массив [6, 7, 19, 345, 3] -> да
+
+System.Console.WriteLine("Введите число");;
+int num = Convert.ToInt32(Console.ReadLine());
+bool isFind = false;
+int[] array = new int[5];
 System.Console.WriteLine("");
 for(int i = 0; i < array.Length; i++)
 {
-    array[i] = new Random().Next(-9, 10);
-    System.Console.Write(array[i] + " ");
+    array[i] = new Random().Next(0, 5);
+    System.Console.WriteLine(array[i]);
+    if(array[i] == num)
+    {
+        isFind = true;
+    }
 }
-System.Console.WriteLine("");
-for(int j = 0; j < array.Length; j++)
+if (isFind)
 {
-    array[j] = array[j] * -1;
-    System.Console.Write(array[j] + " ");
+    System.Console.WriteLine("Да");
 }
-
-
-
+else
+{
+    System.Console.WriteLine("Нет");
+}
