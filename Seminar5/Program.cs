@@ -104,46 +104,57 @@
 
 // Моя вариант решения:
 
-Console.Write("Введите количество элементов массива: ");
-int n = Convert.ToInt32(Console.ReadLine());
-int p = (n/2) + (n%2);
+// Console.Write("Введите количество элементов массива: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// int p = (n/2) + (n%2);
 
-int[] array = new int[n];
-int[] arrayTwo = new int[p];
+// int[] array = new int[n];
+// int[] arrayTwo = new int[p];
 
-for(int i = 0; i < array.Length; i++)
-{
-    array[i] = new Random().Next(0, 100);
-    Console.Write(array[i] + " ");
-}
-Console.WriteLine("");
-for(int j = 0; j < (array.Length + 1)/2; j++)
-{
-    if(!(j == ((array.Length)/2)))
-    {
-        arrayTwo[j] = array[j] * array[(array.Length-1)-j];
-        Console.Write(arrayTwo[j] + " ");
-    }
-    else
-    {
-        arrayTwo[j] = array[j];
-        Console.Write(arrayTwo[j] + " ");
-    }
-}
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = new Random().Next(0, 100);
+//     Console.Write(array[i] + " ");
+// }
+// Console.WriteLine("");
+// for(int j = 0; j < (array.Length + 1)/2; j++)
+// {
+//     if(!(j == ((array.Length)/2)))
+//     {
+//         arrayTwo[j] = array[j] * array[(array.Length-1)-j];
+//         Console.Write(arrayTwo[j] + " ");
+//     }
+//     else
+//     {
+//         arrayTwo[j] = array[j];
+//         Console.Write(arrayTwo[j] + " ");
+//     }
+// }
 
 
 // Решение преподователя:
 
-// int[] array = new int[4];
-// int count = 0;
-// for(int i = 0; i < array.Length; i++)
-// {
-//     array[i] = new Random().Next(0, 160);
-//     System.Console.Write(array[i] + " ");
-//     if(array[i] > 9 && array[i] < 100)
-//     {
-//         count++;
-//     }
-// }
-// System.Console.WriteLine();
-// System.Console.WriteLine(count++);
+Console.Write("Введите количество элементов массива: ");
+int num = Convert.ToInt32(Console.ReadLine());
+int[] array1 = new int[num];
+int[] array2 = new int[array1.Length/2 + array1.Length%2];
+
+for(int k = 0; k < array1.Length; k++)
+{
+    array1[k] = new Random().Next(0, 100);
+    System.Console.Write(array1[k] + " ");
+}
+
+for(int i = 0; i < array2.Length; i++)
+{
+    array2[i] = array1[i] * array1[(array1.Length-1) - i];
+    if(array1.Length-1-i == i)
+    {
+        array2[i] = array1[i];
+    }
+}
+System.Console.WriteLine("");
+for(int j = 0; j < array2.Length; j++)
+{
+    System.Console.Write(array2[j] + " ");
+}
