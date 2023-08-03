@@ -101,9 +101,16 @@
 // [1, 2, 3, 4, 5] -> 5, 8, 3
 // [6, 7, 3, 6] -> 36, 21
 
+
+// Моя вариант решения:
+
 Console.Write("Введите количество элементов массива: ");
 int n = Convert.ToInt32(Console.ReadLine());
+int p = (n/2) + (n%2);
+
 int[] array = new int[n];
+int[] arrayTwo = new int[p];
+
 for(int i = 0; i < array.Length; i++)
 {
     array[i] = new Random().Next(0, 100);
@@ -114,11 +121,29 @@ for(int j = 0; j < (array.Length + 1)/2; j++)
 {
     if(!(j == ((array.Length)/2)))
     {
-        Console.Write(array[j] * array[(array.Length-1)-j] + " ");
+        arrayTwo[j] = array[j] * array[(array.Length-1)-j];
+        Console.Write(arrayTwo[j] + " ");
     }
     else
     {
-        System.Console.Write(array[j]);
-        j = array.Length;
+        arrayTwo[j] = array[j];
+        Console.Write(arrayTwo[j] + " ");
     }
 }
+
+
+// Решение преподователя:
+
+// int[] array = new int[4];
+// int count = 0;
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = new Random().Next(0, 160);
+//     System.Console.Write(array[i] + " ");
+//     if(array[i] > 9 && array[i] < 100)
+//     {
+//         count++;
+//     }
+// }
+// System.Console.WriteLine();
+// System.Console.WriteLine(count++);
