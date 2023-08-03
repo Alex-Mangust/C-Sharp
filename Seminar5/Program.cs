@@ -80,16 +80,45 @@
 // [1, 2, 3, 6, 2] -> 0
 // [10, 11, 12, 13, 14] -> 5
 
-int[] array = new int[123];
-int count = 0;
+// int[] array = new int[123];
+// int count = 0;
+// for(int i = 0; i < array.Length; i++)
+// {
+//     array[i] = new Random().Next(0, 160);
+//     System.Console.Write(array[i] + " ");
+//     if(array[i] > 9 && array[i] < 100)
+//     {
+//         count++;
+//     }
+// }
+// System.Console.WriteLine();
+// System.Console.WriteLine(count++);
+
+
+// Задача 37: Найдите произведение пар чисел в одномерном массиве.
+// Парой считаем первый и последний элемент, второй и последний и т.д.
+// Результат запишите в новом массиве.
+// [1, 2, 3, 4, 5] -> 5, 8, 3
+// [6, 7, 3, 6] -> 36, 21
+
+Console.Write("Введите количество элементов массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
 for(int i = 0; i < array.Length; i++)
 {
-    array[i] = new Random().Next(0, 160);
-    System.Console.Write(array[i] + " ");
-    if(array[i] > 9 && array[i] < 100)
+    array[i] = new Random().Next(0, 100);
+    Console.Write(array[i] + " ");
+}
+Console.WriteLine("");
+for(int j = 0; j < (array.Length + 1)/2; j++)
+{
+    if(!(j == ((array.Length)/2)))
     {
-        count++;
+        Console.Write(array[j] * array[(array.Length-1)-j] + " ");
+    }
+    else
+    {
+        System.Console.Write(array[j]);
+        j = array.Length;
     }
 }
-System.Console.WriteLine();
-System.Console.WriteLine(count++);
