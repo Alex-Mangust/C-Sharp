@@ -56,19 +56,42 @@
     двух других сторон.
 */
 
-System.Console.Write("Введите первое число : ");
-int oneNum = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите второе число : ");
-int twoNum = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите третье число : ");
-int threeNum = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Введите первое число : ");
+// int oneNum = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Введите второе число : ");
+// int twoNum = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Введите третье число : ");
+// int threeNum = Convert.ToInt32(Console.ReadLine());
 
-if((oneNum < twoNum + threeNum) && (twoNum < oneNum + threeNum) && 
-(threeNum < oneNum + twoNum))
+// if((oneNum < twoNum + threeNum) && (twoNum < oneNum + threeNum) && 
+// (threeNum < oneNum + twoNum))
+// {
+//     System.Console.WriteLine("Треугольник со сторонами такой длины может быть!");
+// }
+// else
+// {
+//     System.Console.WriteLine("Треугольник со сторонами такой длины не может быть!");
+// }
+
+
+/*  Задача 44. Не используя рекурсию, выведите первые N чисел Фибоначи.
+    Первые два числа Фибоначи: 0 и 1
+    Если N = 5 -> 0 1 1 2 3
+    Если N = 3 -> 0 1 1
+    Если N = 7 -> 0 1 1 2 3 5 8
+
+    Число Фибоначи - каждое последующее число является суммой двух предыдущих.
+*/
+
+System.Console.Write("Введите число: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[n];
+array[1] = 1;
+for(int i = 2; i < n; i++)
 {
-    System.Console.WriteLine("Треугольник со сторонами такой длины может быть!");
+    array[i] = array[i - 2] + array[i - 1];
 }
-else
+for(int j = 0; j < n; j++)
 {
-    System.Console.WriteLine("Треугольник со сторонами такой длины не может быть!");
+    System.Console.Write(array[j] + " ");
 }
