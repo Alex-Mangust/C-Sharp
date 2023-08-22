@@ -103,43 +103,103 @@
     [1 2 3 4 5] -> [5 4 3 2 1]
     [6 7 3 6] -> [6 3 7 6]
 */
-    int m = new Random().Next(1, 10);
-    int[] array = new int[m];
-    System.Console.Write("Первый массив: ");
-    for(int i = 0; i < m; i++)
+
+    // int m = new Random().Next(1, 10);
+    // int[] array = new int[m];
+    // System.Console.Write("Первый массив: ");
+    // for(int i = 0; i < m; i++)
+    // {
+    //     array[i] = new Random().Next(0, 100);
+    //     if(i == 0)
+    //     {
+    //         System.Console.Write("[");
+    //     }
+    //     System.Console.Write(array[i]);
+    //     if (i != m-1)
+    //     {
+    //         System.Console.Write("; ");
+    //     }
+    //     else
+    //     {
+    //         System.Console.Write("]");
+    //     }
+    // }
+    // System.Console.WriteLine("");
+    // System.Console.Write("Второй массив: ");
+    // int[] arrayTwo = new int[m];
+    // for(int i = 0; i < m; i++)
+    // {
+    //     arrayTwo[i] = array[m-(i+1)];
+    //     if(i == 0)
+    //     {
+    //         System.Console.Write("[");
+    //     }
+    //     System.Console.Write(arrayTwo[i]);
+    //     if (i != m-1)
+    //     {
+    //         System.Console.Write("; ");
+    //     }
+    //     else
+    //     {
+    //         System.Console.Write("]");
+    //     }
+    // }
+
+// Второй вариант решения
+
+int m = new Random().Next(1, 10);
+int[] array = new int[m];
+void ArrayPrint()
+{
+    for(int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(0, 100);
+        array[i] = new Random().Next(1, 10);
+        if(i == 0)
+        {
+        System.Console.Write("[");
+        }
+        System.Console.Write(array[i]);
+        if(i != array.Length-1)
+        {
+            System.Console.Write(";");
+        }
+        else
+        {
+            System.Console.Write("]");
+        }
+    }
+}
+void ArrayInversion()
+{
+    for(int i = 0; i < array.Length / 2; i++)
+    {
+        int tempOne = array[array.Length - (i+1)];
+        int tempTwo = array[i];
+        array[i] = tempOne;
+        array[array.Length - (i + 1)] = tempTwo;
+    }
+}
+void ArrayInversionPrint()
+{
+    for(int i = 0; i < array.Length; i++)
+    {
         if(i == 0)
         {
             System.Console.Write("[");
         }
         System.Console.Write(array[i]);
-        if (i != m-1)
+        if(i != array.Length-1)
         {
-            System.Console.Write("; ");
+            System.Console.Write(";");
         }
         else
         {
             System.Console.Write("]");
         }
     }
-    System.Console.WriteLine("");
-    System.Console.Write("Второй массив: ");
-    int[] arrayTwo = new int[m];
-    for(int i = 0; i < m; i++)
-    {
-        arrayTwo[i] = array[m-(i+1)];
-        if(i == 0)
-        {
-            System.Console.Write("[");
-        }
-        System.Console.Write(arrayTwo[i]);
-        if (i != m-1)
-        {
-            System.Console.Write("; ");
-        }
-        else
-        {
-            System.Console.Write("]");
-        }
-    }
+}
+
+ArrayPrint();
+ArrayInversion();
+System.Console.WriteLine("");
+ArrayInversionPrint();
