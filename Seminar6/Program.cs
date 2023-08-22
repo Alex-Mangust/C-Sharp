@@ -26,24 +26,49 @@
 // }
 // System.Console.WriteLine(numberTwo);
 
-// Мой вариант решения с помощью массива:
+// // Мой вариант решения с помощью массива:
 
-System.Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
-int numTwo = num;
-int m = 0;
-while(numTwo > 0)
+// System.Console.Write("Введите число: ");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int numTwo = num;
+// int m = 0;
+// while(numTwo > 0)
+// {
+//     numTwo /= 2;
+//     m++;
+// }
+// int[] array = new int[m];
+// for(int i = 1; i <= m; i++)
+// {
+//     array[m - i] = num%2;
+//     num /= 2;
+// }
+// for(int j = 0; j < m; j++)
+// {
+//     System.Console.Write(array[j]);
+// }
+
+
+
+/*  Задача 40. Напишите программу, которая принимает на вход три числа и проверяет,
+    может ли существовать треугольник со сторонами такой длины.
+    Теорема о неравенстве треугольника: кажда сторона треугольника меньше суммы
+    двух других сторон.
+*/
+
+System.Console.Write("Введите первое число : ");
+int oneNum = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Введите второе число : ");
+int twoNum = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Введите третье число : ");
+int threeNum = Convert.ToInt32(Console.ReadLine());
+
+if((oneNum < twoNum + threeNum) && (twoNum < oneNum + threeNum) && 
+(threeNum < oneNum + twoNum))
 {
-    numTwo /= 2;
-    m++;
+    System.Console.WriteLine("Треугольник со сторонами такой длины может быть!");
 }
-int[] array = new int[m];
-for(int i = 1; i <= m; i++)
+else
 {
-    array[m - i] = num%2;
-    num /= 2;
-}
-for(int j = 0; j < m; j++)
-{
-    System.Console.Write(array[j]);
+    System.Console.WriteLine("Треугольник со сторонами такой длины не может быть!");
 }
