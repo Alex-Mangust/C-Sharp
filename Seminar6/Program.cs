@@ -147,50 +147,88 @@
 
 // Второй вариант решения
 
-int m = new Random().Next(1, 10);
-int[] array = new int[m];
-void ArrayPrint()
+// int m = new Random().Next(1, 10);
+// int[] array = new int[m];
+// void ArrayPrint()
+// {
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = new Random().Next(1, 10);
+//         if(i == 0)
+//         {
+//         System.Console.Write("[");
+//         }
+//         System.Console.Write(array[i]);
+//         if(i != array.Length-1)
+//         {
+//             System.Console.Write(";");
+//         }
+//         else
+//         {
+//             System.Console.Write("]");
+//         }
+//     }
+// }
+// void ArrayInversion()
+// {
+//     for(int i = 0; i < array.Length / 2; i++)
+//     {
+//         int tempOne = array[array.Length - (i+1)];
+//         int tempTwo = array[i];
+//         array[i] = tempOne;
+//         array[array.Length - (i + 1)] = tempTwo;
+//     }
+// }
+// void ArrayInversionPrint()
+// {
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         if(i == 0)
+//         {
+//             System.Console.Write("[");
+//         }
+//         System.Console.Write(array[i]);
+//         if(i != array.Length-1)
+//         {
+//             System.Console.Write(";");
+//         }
+//         else
+//         {
+//             System.Console.Write("]");
+//         }
+//     }
+// }
+
+// ArrayPrint();
+// ArrayInversion();
+// System.Console.WriteLine("");
+// ArrayInversionPrint();
+
+/*  Задача 45. Напишите программу, которая будет создавать копию заданного массива
+    с помощью поэлементарного копирования.
+*/
+
+int[] array = new int[] {1, 2, 3, 4, 5};
+int[] arrayCopy = new int[array.Length];
+void CopyArray(int [] arrayTwo, int [] arrayOne)
 {
-    for(int i = 0; i < array.Length; i++)
+    for(int i = 0; i < arrayOne.Length; i++)
     {
-        array[i] = new Random().Next(1, 10);
-        if(i == 0)
-        {
-        System.Console.Write("[");
-        }
-        System.Console.Write(array[i]);
-        if(i != array.Length-1)
-        {
-            System.Console.Write(";");
-        }
-        else
-        {
-            System.Console.Write("]");
-        }
+    arrayTwo[i] = arrayOne[i];
     }
 }
-void ArrayInversion()
+void ArrayPrint(int [] arrayTwo)
 {
-    for(int i = 0; i < array.Length / 2; i++)
-    {
-        int tempOne = array[array.Length - (i+1)];
-        int tempTwo = array[i];
-        array[i] = tempOne;
-        array[array.Length - (i + 1)] = tempTwo;
-    }
-}
-void ArrayInversionPrint()
-{
-    for(int i = 0; i < array.Length; i++)
+    for(int i = 0; i < arrayTwo.Length; i++)
     {
         if(i == 0)
         {
             System.Console.Write("[");
         }
-        System.Console.Write(array[i]);
-        if(i != array.Length-1)
+        System.Console.Write(arrayTwo[i]);
+        if(i < arrayTwo.Length - 1)
         {
-            System.Console.Write(";");
+            System.Console.Write("; ");
         }
         else
         {
@@ -198,8 +236,5 @@ void ArrayInversionPrint()
         }
     }
 }
-
-ArrayPrint();
-ArrayInversion();
-System.Console.WriteLine("");
-ArrayInversionPrint();
+CopyArray(arrayCopy, array);
+ArrayPrint(arrayCopy);
