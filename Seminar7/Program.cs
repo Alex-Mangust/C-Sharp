@@ -1,1 +1,39 @@
-﻿
+﻿/*  Задача 46. Задайте двумерный массив размером mxn, заполненный целыми числами.
+    m = 3, n = 4
+    1 4 8 19
+    5 2 33 2
+    77 3 8 1
+*/
+
+System.Console.Write("Укажите первую размерность массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Укажите вторую размерность массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[,] arrayOne = new int[m, n];
+void InputArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i,j] = new Random().Next(10, 100);
+        }
+    }
+}
+void PrintArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            if(j == 0) System.Console.Write("|");
+            System.Console.Write(array[i, j]);
+            if(j == array.GetLength(1) - 1) System.Console.Write("|");
+            else System.Console.Write("; ");
+        }
+        System.Console.WriteLine();
+    }
+}
+InputArray(arrayOne);
+PrintArray(arrayOne);
+
