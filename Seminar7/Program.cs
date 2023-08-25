@@ -5,10 +5,48 @@
     77 3 8 1
 */
 
-System.Console.Write("Укажите первую размерность массива: ");
-int m = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Укажите вторую размерность массива: ");
-int n = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Укажите первую размерность массива: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Укажите вторую размерность массива: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// int[,] arrayOne = new int[m, n];
+// void InputArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(10, 100);
+//         }
+//     }
+// }
+// void PrintArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if(j == 0) System.Console.Write("|");
+//             System.Console.Write(array[i, j]);
+//             if(j == array.GetLength(1) - 1) System.Console.Write("|");
+//             else System.Console.Write("; ");
+//         }
+//         System.Console.WriteLine();
+//     }
+// }
+// InputArray(arrayOne);
+// PrintArray(arrayOne);
+
+/*  Задача 48. Задайте двумерный массив размера m на n, каждый элемент в массиве
+    находится по формуле: A[m, n] = m + n.
+    Выведите полученный массив на экран.
+    m = 3, n = 4;
+    0 1 2 3
+    1 2 3 4
+    2 3 4 5
+*/
+
+int m = 3, n = 4;
 int[,] arrayOne = new int[m, n];
 void InputArray(int[,] array)
 {
@@ -16,7 +54,7 @@ void InputArray(int[,] array)
     {
         for(int j = 0; j < array.GetLength(1); j++)
         {
-            array[i,j] = new Random().Next(10, 100);
+            array[i,j] = i + j;
         }
     }
 }
@@ -36,4 +74,3 @@ void PrintArray(int[,] array)
 }
 InputArray(arrayOne);
 PrintArray(arrayOne);
-
