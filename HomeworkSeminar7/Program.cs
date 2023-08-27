@@ -58,62 +58,117 @@
 */
 
 
-// int m = new Random().Next(1, 40);
-// int n = new Random().Next(1, 40);
-// int [,] arrayOne = new int[m, n];
-// void InputArray(int[,] array)
-// {
-//     for(int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for(int j = 0; j < array.GetLength(1); j++)
-//         {
-//             array[i, j] = new Random().Next(10, 100);
-//         }
-//     }
-// }
-// void PrintArray(int[,] array)
-// {
-//     for(int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for(int j = 0; j < array.GetLength(1); j++)
-//         {
-//             if(j == 0) System.Console.Write("[");
-//             System.Console.Write(array[i,j]);
-//             if(j == array.GetLength(1) - 1) System.Console.Write("]");
-//             else System.Console.Write("; ");
-//         }
-//         System.Console.WriteLine();
-//     }
-// }
-// InputArray(arrayOne);
-// bool errorLine = false, errorColumn = false;
-// int line = 0, column = 0;
-// while(!errorLine)
-// {
-//     System.Console.Write("Введите номер строки, в котором расположен элемент: ");
-//     line = Convert.ToInt32(Console.ReadLine());
-//     if(!(line >= 0 & line < m))
-//     {
-//         System.Console.WriteLine("Строки под номером, который вы ввели, нет в массиве.");
-//     }
-//     else errorLine = true;
-// }
-// while(!errorColumn)
-// {
-//     System.Console.Write("Введите номер столбца, в котором расположен элемент: ");
-//     column = Convert.ToInt32(Console.ReadLine());
-//     if(!(column >= 0 && column < n))
-//     {
-//         System.Console.WriteLine("Столбца под номером, который вы ввели, нет в массиве.");
-//     }
-//     else errorColumn = true;
-// }
-// System.Console.WriteLine($"Ваш элемент находится в ячейке [{line},{column}]. Его значение - {arrayOne[line, column]}");
-// System.Console.Write("\nЕсли желаете посмотреть весь массив, введите 1: ");
-// int watch = Convert.ToInt32(Console.ReadLine());
-// if(watch == 1) PrintArray(arrayOne);
+using System.Linq.Expressions;
 
-
+int m = new Random().Next(1, 40);
+int n = new Random().Next(1, 40);
+int [,] arrayOne = new int[m, n];
+void InputArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(10, 100);
+        }
+    }
+}
+void PrintArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            if(j == 0) System.Console.Write("[");
+            System.Console.Write(array[i,j]);
+            if(j == array.GetLength(1) - 1) System.Console.Write("]");
+            else System.Console.Write("; ");
+        }
+        System.Console.WriteLine();
+    }
+}
+bool SearchArray(int[,] array, int element)
+{
+    bool found = false;
+    int countElement = 0;
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            if(array[i, j] == element)
+            {
+                found = true;
+                if(countElement == 0) System.Console.WriteLine($"Ваш элемент находится в ячейке [{i},{j}]. Его значение - {arrayOne[i, j]}");
+                else
+                {
+                    System.Console.WriteLine("Найден еще один подходящий элемент.");
+                    System.Console.WriteLine($"Еще один подходящий элемент находится в ячейке [{i},{j}]. Его значение - {arrayOne[i, j]}");
+                }
+                countElement++;
+            }
+        }
+    }
+    return found;
+}
+InputArray(arrayOne);
+System.Console.WriteLine("Выберите критерии поиска:");
+bool errorCriterion = true;
+while(errorCriterion)
+{
+    System.Console.WriteLine("1 - Поиск по адресу элемента.   2 - Поиск по значению элемента.");
+    int criterion = Convert.ToInt32(Console.ReadLine());
+    if(criterion == 1)
+    {
+        bool errorLine = false, errorColumn = false;
+        int line = 0, column = 0;
+        while(!errorLine)
+        {
+            System.Console.Write("Введите номер строки, в котором расположен элемент: ");
+            line = Convert.ToInt32(Console.ReadLine());
+            if(!(line >= 0 & line < m))
+            {
+                System.Console.WriteLine("Строки под номером, который вы ввели, нет в массиве.");
+            }
+            else errorLine = true;
+        }
+        while(!errorColumn)
+        {
+            System.Console.Write("Введите номер столбца, в котором расположен элемент: ");
+            column = Convert.ToInt32(Console.ReadLine());
+            if(!(column >= 0 && column < n))
+            {
+                System.Console.WriteLine("Столбца под номером, который вы ввели, нет в массиве.");
+            }
+            else errorColumn = true;
+        }
+        System.Console.WriteLine($"Ваш элемент находится в ячейке [{line},{column}]. Его значение - {arrayOne[line, column]}");
+        errorCriterion = false;
+    }
+    else if(criterion == 2)
+    {
+        bool errorSearchElement = true;   
+        while(errorSearchElement)
+        {
+            System.Console.Write("Введите элемент, который желаете найти: ");
+            int element = Convert.ToInt32(Console.ReadLine());
+            if(SearchArray(arrayOne, element) == true) errorSearchElement = false;
+            else
+            {
+                System.Console.WriteLine("Заданного вами элемента нет в массиве.");
+                errorSearchElement = true;
+            }
+        }
+        errorCriterion = false;
+    }
+    else
+    {
+        System.Console.WriteLine("Пожалуйста выберите один из предложенных вариантов.");
+        errorCriterion = true;
+    }
+}
+System.Console.Write("\nЕсли желаете посмотреть весь массив, введите 1: ");
+int watch = Convert.ToInt32(Console.ReadLine());
+if(watch == 1) PrintArray(arrayOne);
 
 /*  
     Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
@@ -125,56 +180,56 @@
     Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 */
 
-System.Console.Write("Введите первую размерность массива: ");
-int m = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("Введите вторую размерность массива: ");
-int n = Convert.ToInt32(Console.ReadLine());
-int [,] arrayOne = new int[m,n];
-void InputArray(int[,] array)
-{
-    for(int i = 0; i < array.GetLength(0); i++)
-    {
-        for(int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i,j] = new Random().Next(0, 100);
-        }
-    }
-}
-void PrintArray(int[,] array)
-{
-    for(int i = 0; i < array.GetLength(0); i++)
-    {
-        for(int j = 0; j < array.GetLength(1); j++)
-        {
-            if(j == 0) System.Console.Write("[");
-            System.Console.Write(array[i, j]);
-            if(j == array.GetLength(1) - 1) System.Console.Write("]");
-            else System.Console.Write("; ");
-        }
-        System.Console.WriteLine();
-    }
-}
-void AverageArray(int[,] array)
-{
-    for(int count = 0; count < array.GetLength(1); count++)
-    {
-        double average = 0;
-        int numbers = 0;
-        for(int i = 0; i < array.GetLength(0); i++)
-        {
-            for(int j = 0; j < array.GetLength(1); j++)
-            {
-                if(j == count)
-                {
-                    average += array[i, j];
-                    numbers++;
-                }
-            }
-        }
-        average /= numbers;
-        System.Console.WriteLine($"Среднее арифметического элементов {count+1} столбца - {Math.Round(average, 2)};");
-    }
-}
-InputArray(arrayOne);
-PrintArray(arrayOne);
-AverageArray(arrayOne);
+// System.Console.Write("Введите первую размерность массива: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// System.Console.Write("Введите вторую размерность массива: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// int [,] arrayOne = new int[m,n];
+// void InputArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i,j] = new Random().Next(0, 100);
+//         }
+//     }
+// }
+// void PrintArray(int[,] array)
+// {
+//     for(int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for(int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if(j == 0) System.Console.Write("[");
+//             System.Console.Write(array[i, j]);
+//             if(j == array.GetLength(1) - 1) System.Console.Write("]");
+//             else System.Console.Write("; ");
+//         }
+//         System.Console.WriteLine();
+//     }
+// }
+// void AverageArray(int[,] array)
+// {
+//     for(int count = 0; count < array.GetLength(1); count++)
+//     {
+//         double average = 0;
+//         int numbers = 0;
+//         for(int i = 0; i < array.GetLength(0); i++)
+//         {
+//             for(int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 if(j == count)
+//                 {
+//                     average += array[i, j];
+//                     numbers++;
+//                 }
+//             }
+//         }
+//         average /= numbers;
+//         System.Console.WriteLine($"Среднее арифметического элементов {count+1} столбца - {Math.Round(average, 2)};");
+//     }
+// }
+// InputArray(arrayOne);
+// PrintArray(arrayOne);
+// AverageArray(arrayOne);
