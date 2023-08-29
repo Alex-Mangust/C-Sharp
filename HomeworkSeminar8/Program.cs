@@ -172,87 +172,87 @@
 */
 
 
-System.Console.Write("Введите первую размерность первого массива: ");
-int rowsOne = Convert.ToInt32(System.Console.ReadLine());
-System.Console.Write("Введите вторую размерность первого массива: ");
-int columsOne = Convert.ToInt32(System.Console.ReadLine());
-int[,] matrixOne = new int[2, 2]
-{
-    {2,4},
-    {3,2}
-};
-System.Console.WriteLine();
-System.Console.Write("Введите первую размерность второго массива: ");
-int rowsTwo = Convert.ToInt32(System.Console.ReadLine());
-System.Console.Write("Введите вторую размерность второго массива: ");
-int columsTwo = Convert.ToInt32(System.Console.ReadLine());
-int[,] matrixTwo = new int[2, 2]
-{
-    {3,4},
-    {3,3}
-};
-if(rowsOne == columsTwo)
-{
-    int[,] matrixThree = new int[2, 2];
-    // void InputArray(int[,] array)
-    // {
-    //     for(int i = 0; i < array.GetLength(0); i++)
-    //     {
-    //         for(int j = 0; j < array.GetLength(1); j++)
-    //         {
-    //             array[i, j] = new Random().Next(10, 100);
-    //         }
-    //     }
-    // }
-    void PrintArray(int[,] array)
-    {
-        for(int i = 0; i < array.GetLength(0); i++)
-        {
-            for(int j = 0; j < array.GetLength(1); j++)
-            {
-                if(j == 0)
-                {
-                    System.Console.Write("[");
-                }
-                System.Console.Write(array[i,j]);
-                if(j == array.GetLength(1) - 1)
-                {
-                    System.Console.Write("]");
-                }
-                else
-                {
-                    System.Console.Write("; ");
-                }
-            }
-            System.Console.WriteLine();
-        }
-    }
-    void MatrixProduct(int[,] array)
-    {
-        for(int i = 0; i < array.GetLength(0); i++)
-        {
-            for(int j = 0; j < array.GetLength(1); j++)
-            {
-                for(int k = 0; k < array.GetLength(1); k++)
-                {
-                    array[i,j] += matrixOne[i,j] * matrixTwo[j, i]; 
-                }
-            }
-        }
-    }
-    PrintArray(matrixOne);
-    System.Console.WriteLine();
-    PrintArray(matrixTwo);
-    System.Console.WriteLine();
-    MatrixProduct(matrixThree);
-    PrintArray(matrixThree);
+// System.Console.Write("Введите первую размерность первого массива: ");
+// int rowsOne = Convert.ToInt32(System.Console.ReadLine());
+// System.Console.Write("Введите вторую размерность первого массива: ");
+// int columsOne = Convert.ToInt32(System.Console.ReadLine());
+// int[,] matrixOne = new int[2, 2]
+// {
+//     {2,4},
+//     {3,2}
+// };
+// System.Console.WriteLine();
+// System.Console.Write("Введите первую размерность второго массива: ");
+// int rowsTwo = Convert.ToInt32(System.Console.ReadLine());
+// System.Console.Write("Введите вторую размерность второго массива: ");
+// int columsTwo = Convert.ToInt32(System.Console.ReadLine());
+// int[,] matrixTwo = new int[2, 2]
+// {
+//     {3,4},
+//     {3,3}
+// };
+// if(rowsOne == columsTwo)
+// {
+//     int[,] matrixThree = new int[2, 2];
+//     // void InputArray(int[,] array)
+//     // {
+//     //     for(int i = 0; i < array.GetLength(0); i++)
+//     //     {
+//     //         for(int j = 0; j < array.GetLength(1); j++)
+//     //         {
+//     //             array[i, j] = new Random().Next(10, 100);
+//     //         }
+//     //     }
+//     // }
+//     void PrintArray(int[,] array)
+//     {
+//         for(int i = 0; i < array.GetLength(0); i++)
+//         {
+//             for(int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 if(j == 0)
+//                 {
+//                     System.Console.Write("[");
+//                 }
+//                 System.Console.Write(array[i,j]);
+//                 if(j == array.GetLength(1) - 1)
+//                 {
+//                     System.Console.Write("]");
+//                 }
+//                 else
+//                 {
+//                     System.Console.Write("; ");
+//                 }
+//             }
+//             System.Console.WriteLine();
+//         }
+//     }
+//     void MatrixProduct(int[,] array)
+//     {
+//         for(int i = 0; i < array.GetLength(0); i++)
+//         {
+//             for(int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 for(int k = 0; k < array.GetLength(1); k++)
+//                 {
+//                     array[i,j] += matrixOne[i,j] * matrixTwo[j, i]; 
+//                 }
+//             }
+//         }
+//     }
+//     PrintArray(matrixOne);
+//     System.Console.WriteLine();
+//     PrintArray(matrixTwo);
+//     System.Console.WriteLine();
+//     MatrixProduct(matrixThree);
+//     PrintArray(matrixThree);
     
-    }
-    else
-    {
-        System.Console.WriteLine
-        ("Ошибка! Нельзя найти произведение двух заданных матриц, так как количество строк первой матрицы не равно количеству строк второй!");
-    }
+//     }
+//     else
+//     {
+//         System.Console.WriteLine
+//         ("Ошибка! Нельзя найти произведение двух заданных матриц, так как количество строк первой матрицы не равно количеству строк второй!");
+//     }
 
 
 
@@ -267,6 +267,107 @@ if(rowsOne == columsTwo)
     27(0,0,1) 90(0,1,1)
     26(1,0,1) 55(1,1,1)
 */
+
+
+bool start = false;
+int x = 1, y = 1, z = 1;
+while (!start)
+{
+    Console.Write("Введите первую размерность массива: ");
+    x = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Введите вторую размерность массива: ");
+    y = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Введите третью размерность массива: ");
+    z = Convert.ToInt32(Console.ReadLine());
+
+    if (x * y * z <= 90)
+    {
+        start = true;
+    }
+    else
+    {
+        Console.WriteLine("Произведение всех размерностей не должно быть больше 90.");
+    }
+}
+int[,,] matrix = new int[x, y, z];
+
+bool identical = true;
+void InputArray(int[,,] array)
+{
+    int element = 0;
+    int indexIElement = 0;
+    int indexJElement = 0;
+    int indexKElement = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                identical = true;
+                while (identical)
+                {
+                    array[i, j, k] = new Random().Next(10, 100);
+                    element = array[i, j, k];
+                    indexIElement = i; indexJElement = j; indexKElement = k;
+                    CheckIdenticalArray(array, element, indexIElement, indexJElement, indexKElement);
+                }
+            }
+        }
+    }
+}
+bool CheckIdenticalArray(int[,,] array, int InputElement, int OneIndexElement, int TwoIndexElement, int ThreeIndexElement)
+{
+    for (int i = OneIndexElement - 1; i > 0; i--)
+    {
+        for (int j = TwoIndexElement - 1; j > 0; j--)
+        {
+            for (int k = ThreeIndexElement - 1; k > 0; k--)
+            {
+
+                if (InputElement == array[i, j, k])
+                {
+                    identical = true;
+                    return identical;
+                }
+            }
+        }
+    }
+    identical = false;
+    return identical;
+}
+void PrintArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                if (k == 0)
+                {
+                    Console.Write("[");
+                }
+                Console.Write($"{array[i, j, k]}({i},{j},{k})");
+                if (k == array.GetLongLength(2) - 1)
+                {
+                    Console.Write("]");
+                }
+                else
+                {
+                    Console.Write("; ");
+                }
+            }
+            System.Console.WriteLine();
+        }
+        System.Console.WriteLine();
+    }
+}
+
+InputArray(matrix);
+PrintArray(matrix);
+
+
 
 /*  
     Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
