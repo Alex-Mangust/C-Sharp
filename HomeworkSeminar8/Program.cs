@@ -172,88 +172,81 @@
 */
 
 
-// System.Console.Write("Введите первую размерность первого массива: ");
-// int rowsOne = Convert.ToInt32(System.Console.ReadLine());
-// System.Console.Write("Введите вторую размерность первого массива: ");
-// int columsOne = Convert.ToInt32(System.Console.ReadLine());
-// int[,] matrixOne = new int[2, 2]
-// {
-//     {2,4},
-//     {3,2}
-// };
-// System.Console.WriteLine();
-// System.Console.Write("Введите первую размерность второго массива: ");
-// int rowsTwo = Convert.ToInt32(System.Console.ReadLine());
-// System.Console.Write("Введите вторую размерность второго массива: ");
-// int columsTwo = Convert.ToInt32(System.Console.ReadLine());
-// int[,] matrixTwo = new int[2, 2]
-// {
-//     {3,4},
-//     {3,3}
-// };
-// if(rowsOne == columsTwo)
-// {
-//     int[,] matrixThree = new int[2, 2];
-//     // void InputArray(int[,] array)
-//     // {
-//     //     for(int i = 0; i < array.GetLength(0); i++)
-//     //     {
-//     //         for(int j = 0; j < array.GetLength(1); j++)
-//     //         {
-//     //             array[i, j] = new Random().Next(10, 100);
-//     //         }
-//     //     }
-//     // }
-//     void PrintArray(int[,] array)
-//     {
-//         for(int i = 0; i < array.GetLength(0); i++)
-//         {
-//             for(int j = 0; j < array.GetLength(1); j++)
-//             {
-//                 if(j == 0)
-//                 {
-//                     System.Console.Write("[");
-//                 }
-//                 System.Console.Write(array[i,j]);
-//                 if(j == array.GetLength(1) - 1)
-//                 {
-//                     System.Console.Write("]");
-//                 }
-//                 else
-//                 {
-//                     System.Console.Write("; ");
-//                 }
-//             }
-//             System.Console.WriteLine();
-//         }
-//     }
-//     void MatrixProduct(int[,] array)
-//     {
-//         for(int i = 0; i < array.GetLength(0); i++)
-//         {
-//             for(int j = 0; j < array.GetLength(1); j++)
-//             {
-//                 for(int k = 0; k < array.GetLength(1); k++)
-//                 {
-//                     array[i,j] += matrixOne[i,j] * matrixTwo[j, i]; 
-//                 }
-//             }
-//         }
-//     }
-//     PrintArray(matrixOne);
-//     System.Console.WriteLine();
-//     PrintArray(matrixTwo);
-//     System.Console.WriteLine();
-//     MatrixProduct(matrixThree);
-//     PrintArray(matrixThree);
-    
-//     }
-//     else
-//     {
-//         System.Console.WriteLine
-//         ("Ошибка! Нельзя найти произведение двух заданных матриц, так как количество строк первой матрицы не равно количеству строк второй!");
-//     }
-
+Console.Write("Введите первую размерность первого массива: ");
+int rowsOne = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите вторую размерность первого массива: ");
+int columsOne = Convert.ToInt32(Console.ReadLine());
+int[,] matrixOne = new int[rowsOne, columsOne];
+Console.Write("Введите первую размерность второго массива: ");
+int rowsTwo = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите вторую размерность второго массива: ");
+int columsTwo = Convert.ToInt32(Console.ReadLine());
+int[,] matrixTwo = new int[rowsTwo, columsTwo];
+if (rowsOne == columsTwo)
+{
+    int[,] matrixThree = new int[rowsOne, columsTwo];
+     void InputArray(int[,] array)
+     {
+         for(int i = 0; i < array.GetLength(0); i++)
+         {
+             for(int j = 0; j < array.GetLength(1); j++)
+             {
+                 array[i, j] = new Random().Next(0, 10);
+             }
+         }
+    }
+    void PrintArray(int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                if (j == 0)
+                {
+                    System.Console.Write("[");
+                }
+                System.Console.Write(array[i, j]);
+                if (j == array.GetLength(1) - 1)
+                {
+                    System.Console.Write("]");
+                }
+                else
+                {
+                    System.Console.Write("; ");
+                }
+            }
+            System.Console.WriteLine();
+        }
+    }
+    void MultiplyMatrix(int[,] firstMatrix, int[,] secomdMartrix, int[,] resultMatrix)
+    {
+        for (int i = 0; i < resultMatrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < resultMatrix.GetLength(1); j++)
+            {
+                int sum = 0;
+                for (int k = 0; k < firstMatrix.GetLength(1); k++)
+                {
+                    sum += firstMatrix[i, k] * secomdMartrix[k, j];
+                }
+                resultMatrix[i, j] = sum;
+            }
+        }
+    }
+        InputArray(matrixOne);
+        InputArray(matrixTwo);
+        PrintArray(matrixOne);
+        System.Console.WriteLine();
+        PrintArray(matrixTwo);
+        System.Console.WriteLine();
+        MultiplyMatrix(matrixOne, matrixTwo, matrixThree);
+        PrintArray(matrixThree);
+}
+else
+{
+    System.Console.WriteLine
+    ("Ошибка! Нельзя найти произведение двух заданных матриц, так как количество строк первой матрицы не равно количеству строк второй!");
+}
 
 
 
@@ -379,134 +372,134 @@
     10 09 08 07
 */
 
-System.Console.Write("Введите первую размерность массива: ");
-int rows = Convert.ToInt32(System.Console.ReadLine());
-System.Console.Write("Введите вторую размерность массива: ");
-int colums = Convert.ToInt32(System.Console.ReadLine());
-string[,] matrix = new string[rows, colums];
-void InputArray(string[,] array)
-{
-   int num = 1;
-   bool end = false;
-   int i = 0;
-   int j = 0;
-   int maxi = 0;
-   int maxj = 0;
-   int rowsStopDown = array.GetLength(0) - 1;
-   int columsStopRight = array.GetLength(1) - 1;
-   int rowsStopUp = 0;
-   int columsStopLeft = 0;
-    while (!end)
-    {
-        if (j > columsStopRight)
-        {
-            end = true;
-            break;
-        }
-        for (; j <= columsStopRight; j++)
-        {
-            if (num < 10)
-            {
-                array[i, j] = "0" + num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            else
-            {
-                array[i, j] = num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            num++;
-        }
-        i = maxi + 1;
-        rowsStopUp = i;
-        j = maxj;
-        if(rows == 1)
-        {
-            break;
-        }
-        for (; i <= rowsStopDown; i++)
-        {
-            if (num < 10)
-            {
-                array[i, j] = "0" + num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            else
-            {
-                array[i, j] = num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            num++;
-        }
-        i = maxi;
-        j = maxj - 1;
-        columsStopRight = j;
-        for (; j >= columsStopLeft; j--)
-        {
-            if (num < 10)
-            {
-                array[i, j] = "0" + num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            else
-            {
-                array[i, j] = num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            num++;
-        }
-        i = maxi - 1;
-        rowsStopDown = i;
-        j = maxj;
-        for (; i >= rowsStopUp; i--)
-        {
-            if (num < 10)
-            {
-                array[i, j] = "0" + num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            else
-            {
-                array[i, j] = num.ToString();
-                maxi = i;
-                maxj = j;
-            }
-            num++;
-        }
-        i = maxi;
-        columsStopLeft = maxi;
-        j = maxj + 1;
-    }
-}
-void PrintArray(string[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (j == 0)
-            {
-                System.Console.Write("[");
-            }
-            System.Console.Write(array[i, j]);
-            if (j == array.GetLength(1) - 1)
-            {
-                System.Console.Write("]");
-            }
-            else
-            {
-                System.Console.Write("; ");
-            }
-        }
-        System.Console.WriteLine();
-    }
-}
-InputArray(matrix);
-PrintArray(matrix);
+// System.Console.Write("Введите первую размерность массива: ");
+// int rows = Convert.ToInt32(System.Console.ReadLine());
+// System.Console.Write("Введите вторую размерность массива: ");
+// int colums = Convert.ToInt32(System.Console.ReadLine());
+// string[,] matrix = new string[rows, colums];
+// void InputArray(string[,] array)
+// {
+//    int num = 1;
+//    bool end = false;
+//    int i = 0;
+//    int j = 0;
+//    int maxi = 0;
+//    int maxj = 0;
+//    int rowsStopDown = array.GetLength(0) - 1;
+//    int columsStopRight = array.GetLength(1) - 1;
+//    int rowsStopUp = 0;
+//    int columsStopLeft = 0;
+//     while (!end)
+//     {
+//         if (j > columsStopRight)
+//         {
+//             end = true;
+//             break;
+//         }
+//         for (; j <= columsStopRight; j++)
+//         {
+//             if (num < 10)
+//             {
+//                 array[i, j] = "0" + num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             else
+//             {
+//                 array[i, j] = num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             num++;
+//         }
+//         i = maxi + 1;
+//         rowsStopUp = i;
+//         j = maxj;
+//         if(rows == 1)
+//         {
+//             break;
+//         }
+//         for (; i <= rowsStopDown; i++)
+//         {
+//             if (num < 10)
+//             {
+//                 array[i, j] = "0" + num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             else
+//             {
+//                 array[i, j] = num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             num++;
+//         }
+//         i = maxi;
+//         j = maxj - 1;
+//         columsStopRight = j;
+//         for (; j >= columsStopLeft; j--)
+//         {
+//             if (num < 10)
+//             {
+//                 array[i, j] = "0" + num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             else
+//             {
+//                 array[i, j] = num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             num++;
+//         }
+//         i = maxi - 1;
+//         rowsStopDown = i;
+//         j = maxj;
+//         for (; i >= rowsStopUp; i--)
+//         {
+//             if (num < 10)
+//             {
+//                 array[i, j] = "0" + num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             else
+//             {
+//                 array[i, j] = num.ToString();
+//                 maxi = i;
+//                 maxj = j;
+//             }
+//             num++;
+//         }
+//         i = maxi;
+//         columsStopLeft = maxi;
+//         j = maxj + 1;
+//     }
+// }
+// void PrintArray(string[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if (j == 0)
+//             {
+//                 System.Console.Write("[");
+//             }
+//             System.Console.Write(array[i, j]);
+//             if (j == array.GetLength(1) - 1)
+//             {
+//                 System.Console.Write("]");
+//             }
+//             else
+//             {
+//                 System.Console.Write("; ");
+//             }
+//         }
+//         System.Console.WriteLine();
+//     }
+// }
+// InputArray(matrix);
+// PrintArray(matrix);
