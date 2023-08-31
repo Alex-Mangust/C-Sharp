@@ -182,7 +182,7 @@ int rowsTwo = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите вторую размерность второго массива: ");
 int columsTwo = Convert.ToInt32(Console.ReadLine());
 int[,] matrixTwo = new int[rowsTwo, columsTwo];
-if (rowsOne == columsTwo)
+if (columsOne == rowsTwo)
 {
     int[,] matrixThree = new int[rowsOne, columsTwo];
      void InputArray(int[,] array)
