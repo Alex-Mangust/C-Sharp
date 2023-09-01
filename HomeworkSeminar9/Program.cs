@@ -34,27 +34,27 @@
 */
 
 
-int SumNumbers(int numberOne, int numberTwo)
-{
-    if(numberOne == numberTwo)
-    {
-        return numberOne;
-    }
-    if(numberOne < numberTwo)
-    {
-        return numberTwo + SumNumbers(numberOne, numberTwo - 1);
-    }
-    else
-    {
-        return numberTwo + SumNumbers(numberOne, numberTwo + 1);
-    }
-}
+// int SumNumbers(int numberOne, int numberTwo)
+// {
+//     if(numberOne == numberTwo)
+//     {
+//         return numberOne;
+//     }
+//     if(numberOne < numberTwo)
+//     {
+//         return numberTwo + SumNumbers(numberOne, numberTwo - 1);
+//     }
+//     else
+//     {
+//         return numberTwo + SumNumbers(numberOne, numberTwo + 1);
+//     }
+// }
 
-System.Console.Write("Введите значение числа M: ");
-int m = int.Parse(Console.ReadLine());
-System.Console.Write("Введите значение числа N: ");
-int n = int.Parse(Console.ReadLine());
-System.Console.Write($"M = {m}; N = {n} -> {SumNumbers(m, n)}");
+// System.Console.Write("Введите значение числа M: ");
+// int m = int.Parse(Console.ReadLine());
+// System.Console.Write("Введите значение числа N: ");
+// int n = int.Parse(Console.ReadLine());
+// System.Console.Write($"M = {m}; N = {n} -> {SumNumbers(m, n)}");
 
 
 
@@ -64,3 +64,32 @@ System.Console.Write($"M = {m}; N = {n} -> {SumNumbers(m, n)}");
     m = 3, n = 2 -> A(m,n) = 29
 */
 
+
+
+int A(int numOne, int numTwo)
+{
+    if (numOne == 0) return numTwo + 1;
+    if (numOne != 0 && numTwo == 0) return A(numOne - 1, 1);
+    if (numOne > 0 && numTwo > 0) return A(numOne - 1, A(numOne, numTwo - 1));
+    return A(numOne,numTwo);
+}
+bool error = true;
+int m = 0;
+int n = 0;
+while(error)
+{
+    System.Console.Write("Введите первое число: ");
+    m = int.Parse(Console.ReadLine());
+    System.Console.Write("Введите второе число: ");
+    n = int.Parse(Console.ReadLine());
+    if(m < 0 || n < 0)
+    {
+        System.Console.WriteLine("Ошибка! Оба числа должны быть положительными!");
+    }
+    else
+    {
+        error = false;
+    }
+}
+
+System.Console.Write($"m = {m}, n = {n} - > A(m,n) = {A(m, n)}");
