@@ -117,17 +117,46 @@
 
 // Решение преподователя
 
-Console.WriteLine("Введите число");
+// Console.WriteLine("Введите число");
+// int num = int.Parse(Console.ReadLine());
+
+
+// Console.WriteLine(PrintNumbers(num));
+
+// int PrintNumbers(int num)
+// {
+// if(num<=0)
+// {
+// return 0;
+// }
+// return (num%10+PrintNumbers(num/10));
+// }
+
+
+/*
+    Задача 69: Напишите программу, которая на вход принимает два числа A и B, и возводит
+    число А в целую степень B с помощью рекурсии.
+    A = 3; B = 5 -> 243 (3⁵)
+    A = 2; B = 3 -> 8
+*/
+
+double Power(int numbers, int powerNumbers, int result)
+{
+    if(powerNumbers == 0)
+    {
+        return result;
+    }
+    if(powerNumbers < 0)
+    {
+        return (1/Math.Pow(numbers, powerNumbers));
+    }
+    result = result * numbers;
+    return Power(numbers, powerNumbers - 1, result);
+}
+
+System.Console.Write("Введите число: ");
 int num = int.Parse(Console.ReadLine());
-
-
-Console.WriteLine(PrintNumbers(num));
-
-int PrintNumbers(int num)
-{
-if(num<=0)
-{
-return 0;
-}
-return (num%10+PrintNumbers(num/10));
-}
+System.Console.Write("Введите степень, в которую нужно возвести число: ");
+int power = int.Parse(Console.ReadLine());
+int res = 1;
+System.Console.WriteLine(Power(num, power, res));
