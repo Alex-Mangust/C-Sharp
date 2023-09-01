@@ -6,17 +6,17 @@
 */
 
 
-string PrintNumbers(int num)
-{
-    if(num == 1)
-    {
-        return num.ToString();
-    }
-    return num + "; " + PrintNumbers(num - 1);
-}
-System.Console.Write("Введите число N: ");
-int number = int.Parse(Console.ReadLine());
-System.Console.WriteLine("N = " + number + " -> \"" + PrintNumbers(number) + "\"");
+// string PrintNumbers(int num)
+// {
+//     if(num == 1)
+//     {
+//         return num.ToString();
+//     }
+//     return num + "; " + PrintNumbers(num - 1);
+// }
+// System.Console.Write("Введите число N: ");
+// int number = int.Parse(Console.ReadLine());
+// System.Console.WriteLine("N = " + number + " -> \"" + PrintNumbers(number) + "\"");
 
 
 
@@ -25,6 +25,30 @@ System.Console.WriteLine("N = " + number + " -> \"" + PrintNumbers(number) + "\"
     M = 1; N = 15 -> 120
     M = 4; N = 8. -> 30
 */
+
+
+int SumNumbers(int numberOne, int numberTwo)
+{
+    if(numberOne == numberTwo)
+    {
+        return numberOne;
+    }
+    if(numberOne < numberTwo)
+    {
+        return numberTwo + SumNumbers(numberOne, numberTwo - 1);
+    }
+    else
+    {
+        return numberTwo + SumNumbers(numberOne, numberTwo + 1);
+    }
+}
+
+System.Console.Write("Введите значение числа M: ");
+int m = int.Parse(Console.ReadLine());
+System.Console.Write("Введите значение числа N: ");
+int n = int.Parse(Console.ReadLine());
+System.Console.Write(SumNumbers(m, n));
+
 
 
 /*
